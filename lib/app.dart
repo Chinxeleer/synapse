@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:multilingual/features/sign_language/ui/sign_language_screen.dart';
 import 'package:multilingual/features/text_translation/ui/text_translation_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,10 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      routes: {
-        '/text-translation': (context) => const TextTranslationScreen(),
-        '/sign-language': (context) => const SignLanguageScreen(),
-      },
+      routes: {'/text-translation': (context) => CameraTranslationScreen()},
       home: const HomeScreen(),
     );
   }
@@ -31,33 +27,18 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Welcome to Synapse',
-              style: TextStyle(color: Colors.white, fontSize: 40),
+              'NTTech Multilingual',
+              style: TextStyle(color: Colors.white, fontSize: 30),
             ),
             const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/text-translation');
-                  },
-                  child: const Text(
-                    "Text Translation",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sign-language');
-                  },
-                  child: const Text(
-                    "Sign Language",
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/text-translation');
+              },
+              child: const Text(
+                "Text Translation",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         ),
